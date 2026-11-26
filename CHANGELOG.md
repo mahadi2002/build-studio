@@ -2,6 +2,11 @@
 
 All notable changes to this skill. Versions follow [SemVer](https://semver.org/); the version in `.claude-plugin/plugin.json` matches the newest entry here.
 
+## [4.1.0] - 2026-11-27
+### Changed
+- License is now **Apache-2.0** (was MIT). See `LICENSE` and `NOTICE`. Copies obtained under 4.0.2 or earlier keep the MIT License.
+- The `.skill` package now includes `LICENSE` and `NOTICE`.
+
 ## [4.0.2] - 2026-11-26
 ### Changed
 - Owner profile can also come from a "build-studio owner profile" section in the user's instructions or memory, so claude.ai users keep auto-updates (no local file there).

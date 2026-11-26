@@ -19,11 +19,15 @@ def build(out: pathlib.Path, profile: pathlib.Path | None) -> None:
         for f in sorted(SKILL.rglob("*")):
             if f.is_file() and f.name != "owner-profile.md":
                 z.write(f, pathlib.Path("build-studio") / f.relative_to(SKILL))
+        # Apache-2.0 asks that copies carry the license and notice.
+        for legal in ("LICENSE", "NOTICE"):
+            z.write(ROOT / legal, f"build-studio/{legal}")
         if profile:
             z.write(profile, "build-studio/references/owner-profile.md")
     with zipfile.ZipFile(out) as z:
         names = z.namelist()
     assert "build-studio/SKILL.md" in names, "SKILL.md missing from package"
+    assert "build-studio/LICENSE" in names, "LICENSE missing from package"
     print(f"{out} ({len(names)} files, {out.stat().st_size} bytes)")
 
 

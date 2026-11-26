@@ -9,7 +9,7 @@ One playbook for taking an idea to a deployed, documented product as a one-perso
 
 Read only what the current step needs. A CSS fix needs section 1 and the frontend role. A bug needs sections 1 and 6.1. A new product walks section 3 from the start.
 
-**Owner profile.** Before the first step, load the owner profile if one exists: `~/.claude/build-studio/profile.md`, else `references/owner-profile.md`, else a "build-studio owner profile" section in my instructions or memory (claude.ai has no local files). It holds my live apps, paid hosting, domain, familiar stacks and any house stacks. Its rules add to this file and win where they are stricter. Without a profile, ask for those facts only when a step needs them. Format: `references/owner-profile.example.md`.
+**Owner profile.** Before the first step, load the owner profile if one exists, using the first of: an installed skill named `build-studio-profile` (a private profile plugin that syncs everywhere), `~/.claude/build-studio/profile.md`, `references/owner-profile.md`, or a "build-studio owner profile" section in my instructions or memory. It holds my live apps, paid hosting, domain, familiar stacks and any house stacks. Its rules add to this file and win where they are stricter. Without a profile, ask for those facts only when a step needs them. Format: `references/owner-profile.example.md`.
 
 ## 1. Operating rules (always on)
 

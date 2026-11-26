@@ -2,6 +2,10 @@
 
 All notable changes to this skill. Versions follow [SemVer](https://semver.org/); the version in `.claude-plugin/plugin.json` matches the newest entry here.
 
+## [4.2.0] - 2026-11-27
+### Added
+- The owner profile can come from an installed skill named `build-studio-profile`: a private profile plugin in your own private repo. With claude.ai's automatic marketplace sync it updates claude.ai and Claude Code from one push, so there's no copy to keep in step by hand. It's checked first; the local file and the instructions section still work.
+
 ## [4.1.0] - 2026-11-27
 ### Changed
 - License is now **Apache-2.0** (was MIT). See `LICENSE` and `NOTICE`. Copies obtained under 4.0.2 or earlier keep the MIT License.

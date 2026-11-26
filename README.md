@@ -24,8 +24,9 @@ No marketplace option? Download `build-studio.skill` from the [latest release](h
 ## Make it yours: the owner profile
 The skill reads an optional private profile with your live apps, paid hosting, domain, familiar stacks and any "house stack" (a fixed stack and workflow for a family of projects, usually with its own skill).
 
-- Claude Code: create `~/.claude/build-studio/profile.md`.
-- claude.ai: add a section titled **Build-studio owner profile** to Settings → Account → **Instructions for Claude**. This keeps auto-updates working, because the skill itself stays the public version.
+- **Synced everywhere (recommended):** put the profile in a **private** GitHub repo as a small plugin with one skill named `build-studio-profile`, and add that repo as a marketplace in claude.ai with **Sync automatically** on (connect GitHub and allow the Claude GitHub App on that repo when asked). The desktop app passes it on to Claude Code, so a push to the private repo updates both. Layout: `.claude-plugin/marketplace.json`, `.claude-plugin/plugin.json`, `skills/build-studio-profile/SKILL.md` (the profile, with `name: build-studio-profile` in its frontmatter).
+- Claude Code only: create `~/.claude/build-studio/profile.md`.
+- claude.ai only: add a section titled **Build-studio owner profile** to Settings → Account → **Instructions for Claude**. This keeps auto-updates working, because the skill itself stays the public version.
 - Prefer one private package instead? `python scripts/build_skill.py --profile path/to/profile.md` writes `dist/build-studio-owner.skill` to upload (no auto-update).
 
 Start from [`owner-profile.example.md`](skills/build-studio/references/owner-profile.example.md). Never commit your profile; `.gitignore` already excludes it.

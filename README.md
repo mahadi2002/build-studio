@@ -16,14 +16,17 @@ claude plugin install build-studio@build-studio
 ```
 Then turn on auto-update once: run `/plugin`, open **Marketplaces**, pick **build-studio**, and enable auto-update. Claude Code checks for new versions shortly after a session starts and loads them on the next launch. Manual update any time: `claude plugin update build-studio@build-studio`.
 
-### claude.ai
-Download `build-studio.skill` from the [latest release](https://github.com/mahadi2002/build-studio/releases/latest) and upload it under Plugins (or Skills). To update, download the new release and use **Upload new version** on the plugin. claude.ai does not pull updates from GitHub by itself.
+### claude.ai (updates itself)
+Go to **Plugins → Add → Add marketplace → Add from a repository**, enter `mahadi2002/build-studio`, keep **Sync automatically** on, and click **Sync**. Then open **Build studio** in the list and click **Add**. claude.ai re-syncs when the repository changes, and the Claude desktop app passes the update to Claude Code on the same machine.
+
+No marketplace option? Download `build-studio.skill` from the [latest release](https://github.com/mahadi2002/build-studio/releases/latest) and upload it under Plugins; uploads don't update themselves.
 
 ## Make it yours: the owner profile
 The skill reads an optional private profile with your live apps, paid hosting, domain, familiar stacks and any "house stack" (a fixed stack and workflow for a family of projects, usually with its own skill).
 
 - Claude Code: create `~/.claude/build-studio/profile.md`.
-- claude.ai: build your own package with the profile inside: `python scripts/build_skill.py --profile path/to/profile.md` (writes `dist/build-studio-owner.skill`, which you upload instead).
+- claude.ai: add a section titled **Build-studio owner profile** to Settings → Account → **Instructions for Claude**. This keeps auto-updates working, because the skill itself stays the public version.
+- Prefer one private package instead? `python scripts/build_skill.py --profile path/to/profile.md` writes `dist/build-studio-owner.skill` to upload (no auto-update).
 
 Start from [`owner-profile.example.md`](skills/build-studio/references/owner-profile.example.md). Never commit your profile; `.gitignore` already excludes it.
 

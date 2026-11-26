@@ -2,6 +2,11 @@
 
 All notable changes to this skill. Versions follow [SemVer](https://semver.org/); the version in `.claude-plugin/plugin.json` matches the newest entry here.
 
+## [4.0.2] - 2026-11-26
+### Changed
+- Owner profile can also come from a "build-studio owner profile" section in the user's instructions or memory, so claude.ai users keep auto-updates (no local file there).
+- README: claude.ai install now follows the repo as a marketplace with automatic sync; uploading the `.skill` is the fallback.
+
 ## [4.0.1] - 2026-11-26
 Lessons from the first real project built with the skill.
 ### Fixed

@@ -17,7 +17,7 @@ claude plugin install build-studio@build-studio
 Then turn on auto-update once: run `/plugin`, open **Marketplaces**, pick **build-studio**, and enable auto-update. Claude Code checks for new versions shortly after a session starts and loads them on the next launch. Manual update any time: `claude plugin update build-studio@build-studio`.
 
 ### claude.ai (updates itself)
-Go to **Plugins → Add → Add marketplace → Add from a repository**, enter `mahadi2002/build-studio`, keep **Sync automatically** on, and click **Sync**. Then open **Build studio** in the list and click **Add**. claude.ai re-syncs when the repository changes, and the Claude desktop app passes the update to Claude Code on the same machine.
+Go to **Plugins → Add → Add marketplace → Add from a repository**, enter `mahadi2002/build-studio`, keep **Sync automatically** on, and click **Sync**. Then open **Build studio** in the list and click **Add**. claude.ai re-syncs when the repository changes, and the Claude desktop app passes the update to Claude Code on the same machine. Re-syncing relies on the **Claude GitHub App** having access to the repository: if your copy stays on an old version, open GitHub → Settings → Applications → Installed GitHub Apps → **Claude** → Configure and add `build-studio` to its repositories. **Check for updates** in claude.ai's **Manage marketplaces** pulls the latest version by hand.
 
 No marketplace option? Download `build-studio.skill` from the [latest release](https://github.com/mahadi2002/build-studio/releases/latest) and upload it under Plugins; uploads don't update themselves.
 

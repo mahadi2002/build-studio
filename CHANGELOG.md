@@ -2,6 +2,10 @@
 
 All notable changes to this skill. Versions follow [SemVer](https://semver.org/); the version in `.claude-plugin/plugin.json` matches the newest entry here.
 
+## [4.2.1] - 2026-11-27
+### Fixed
+- README: claude.ai's automatic sync needs the Claude GitHub App to have access to the repository; added how to grant it and how to update by hand.
+
 ## [4.2.0] - 2026-11-27
 ### Added
 - The owner profile can come from an installed skill named `build-studio-profile`: a private profile plugin in your own private repo. With claude.ai's automatic marketplace sync it updates claude.ai and Claude Code from one push, so there's no copy to keep in step by hand. It's checked first; the local file and the instructions section still work.

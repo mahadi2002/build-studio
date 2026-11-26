@@ -60,4 +60,5 @@ The test plan's commands all pass in CI on the release commit, end-to-end tests 
 **React:** Testing Library queries by role and label; `userEvent` over `fireEvent`; MSW for API responses in component tests.
 **Next.js / SvelteKit:** test server code as functions plus a few end-to-end flows; component tests for client pieces.
 **Supabase:** test RLS policies with the anon key and two user JWTs against a local Supabase (`supabase start`).
+**Cloudflare Workers / Pages:** run API tests inside the Workers runtime with `@cloudflare/vitest-plugin` (`cloudflareTest()` in the Vitest config; the older `@cloudflare/vitest-pool-workers` is deprecated). For D1, read migrations in the config with `readD1Migrations("./migrations")`, pass them as a binding, and call `applyD1Migrations(env.DB, migrations)` in a setup file; each test file gets isolated storage.
 **House stack (owner profile):** follow its skill's testing guide and tools.

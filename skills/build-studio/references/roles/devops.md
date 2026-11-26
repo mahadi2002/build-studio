@@ -69,5 +69,5 @@ A green pipeline on main in the required order, a preview URL per branch, a docu
 **Cloudflare Workers/Pages:** `wrangler.toml` in the repo; `wrangler deploy` from CI with a scoped API token; secrets via `wrangler secret put`; versions and rollbacks through `wrangler` (check current command names).
 **Render:** `render.yaml` blueprint in the repo; health check path set; free instances sleep after idle and cold-start slowly, so the uptime check should not count that as an outage (or use a paid plan, G3).
 **Python:** `uv` or `pip-tools` for locked dependencies; `ruff` and `mypy` in the lint step; `pip-audit` in the security step.
-**Node:** `npm ci`; `eslint`, `prettier --check`, `tsc --noEmit` in the lint step; `npm audit --omit=dev` in the security step.
+**Node:** `npm ci`; `eslint`, `prettier --check`, `tsc --noEmit` in the lint step; `npm audit --omit=dev` in the security step. npm 11+ blocks install scripts by default: approve only packages the chosen stack needs (`npm approve-scripts <pkg>`, for example `workerd`, `esbuild`) and review the `allowScripts` list in `package.json` like any dependency change. In CI, check a step's own exit code; piping it into `tail` or `grep` hides a failure.
 **PHP on shared hosting:** deploy by upload or git pull as the host allows; a house stack's deploy guide wins (some forbid Composer).

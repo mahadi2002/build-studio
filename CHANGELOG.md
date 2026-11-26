@@ -2,6 +2,12 @@
 
 All notable changes to this skill. Versions follow [SemVer](https://semver.org/); the version in `.claude-plugin/plugin.json` matches the newest entry here.
 
+## [4.0.1] - 2026-11-26
+Lessons from the first real project built with the skill.
+### Fixed
+- QA/SDET role: Cloudflare Workers and Pages tests use `@cloudflare/vitest-plugin`; the older `@cloudflare/vitest-pool-workers` is deprecated. Added how to apply D1 migrations in tests.
+- DevOps role: npm 11+ blocks install scripts by default; approve only the packages the stack needs and review `allowScripts`. Check a CI step's own exit code instead of piping it.
+
 ## [4.0.0] - 2026-11-26
 First public release.
 ### Added

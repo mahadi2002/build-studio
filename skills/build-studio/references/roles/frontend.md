@@ -19,7 +19,7 @@ tier: 1 | sources: v1 s4/s5/s11, vercel-labs react-best-practices, anthropics fr
 2. **Plan in two passes.** Write a token plan: 4-6 named hex colors, 1-2 typefaces with roles, a layout concept (one sentence plus an ASCII wireframe, alignment stated), 2-3 principles. Then check it: if any part is what you'd produce for any similar page, revise it and say what changed. Only then code.
 3. **Avoid generated-page defaults** unless the brief asks: cream + serif + terracotta; near-black + one acid accent; identical rounded cards with the same soft shadow; purple gradients; Inter everywhere; everything centered; ALL-CAPS eyebrow labels; one accented word per headline; "→" on every button; 01/02/03 markers on content that is not a sequence; fade-and-slide-up on every section; hover effects on every card.
 4. **Type:** one or two clearly distinct families, a deliberate scale, body lines under about 80 characters.
-5. **Restraint:** one memorable element, everything around it quiet. Remove one decoration before shipping. Motion only for one planned moment or as feedback to an action.
+5. **Restraint:** one memorable element, everything around it quiet. Remove one decoration before shipping. Motion only for one planned moment or as feedback to an action; decide with the "should this animate at all?" step in [animate](../vendor/animate/animate.md).
 6. **Quality floor, always:** works at 360px, visible keyboard focus, `prefers-reduced-motion` respected, contrast passing, every state designed: default, hover, active, disabled, loading, empty, error.
 7. **CSS hygiene:** tokens as CSS variables, not repeated raw values; watch selector specificity so section and component rules don't cancel each other (spacing between sections is the usual victim).
 8. **Self-critique** from a screenshot: what draws the eye first, can the user finish the main task, reading order, spacing and type consistency, accessibility. Fix the top 3 before showing it.
@@ -44,6 +44,12 @@ tier: 1 | sources: v1 s4/s5/s11, vercel-labs react-best-practices, anthropics fr
 - Forms and validation: React Hook Form + zod; VeeValidate + zod on Vue; Superforms on SvelteKit.
 - Server state: TanStack Query; SWR for simple cases.
 - UI exploration: `prototype` for several variants; `impeccable` for critique and polish.
+- Bundled guides ([index](../vendor/README.md)), loaded when their work starts:
+  - landing page, portfolio, marketing page or redesign: [design-taste-frontend](../vendor/design-taste-frontend/design-taste-frontend.md), next to the token plan (rule 2)
+  - polish, component feel, any UI review: [emil-design-eng](../vendor/emil-design-eng/emil-design-eng.md)
+  - gestures, drag, sheets, springs, momentum, materials, type: [apple-design](../vendor/apple-design/apple-design.md)
+  - building motion: [animate](../vendor/animate/animate.md) and its [recipes](../vendor/animate/RECIPES.md); reviewing it: [review-animations](../vendor/review-animations/review-animations.md) with [standards](../vendor/review-animations/STANDARDS.md)
+  - motion across a codebase: [improve-animations](../vendor/improve-animations/improve-animations.md); where motion is missing: [find-animation-opportunities](../vendor/find-animation-opportunities/find-animation-opportunities.md); naming an effect: [animation-vocabulary](../vendor/animation-vocabulary/animation-vocabulary.md)
 
 ## Checklist
 - [ ] Token plan written and checked before styling

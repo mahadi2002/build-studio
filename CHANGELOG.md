@@ -2,6 +2,14 @@
 
 All notable changes to this skill. Versions follow [SemVer](https://semver.org/); the version in `.claude-plugin/plugin.json` matches the newest entry here.
 
+## [4.3.0] - 2026-11-27
+### Added
+- Bundled craft guides in `references/vendor/`: full, unchanged copies of ponytail (all six skills), design-taste-frontend, emil-design-eng, apple-design, animate, review-animations, improve-animations, find-animation-opportunities and animation-vocabulary (18 files, MIT, credited in `references/vendor/LICENSES.md`). An index says when to load each and how they rank against build-studio's own rules.
+- Rule 1.2 now carries ponytail's order of preference (not needed → existing code → standard library → native feature → installed dependency → one line → new code) and `ponytail:` shortcut comments.
+- Code review (6.3) adds an over-engineering pass and, for UI and motion, the bundled review guides. The frontend and tech-lead roles point to the matching guides.
+### Changed
+- The lint skips style checks (not link checks) for `references/vendor/`, so the authors' text stays unchanged.
+
 ## [4.2.2] - 2026-11-27
 ### Fixed
 - Section 10: the Claude Code update path now releases through the repo (bump the version, push, tag; marketplace installs update themselves) instead of asking for a zip to upload by hand. Uploading a `.skill` stays as the path for uploaded copies only.

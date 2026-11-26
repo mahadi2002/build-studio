@@ -44,7 +44,7 @@ tier: 1 | sources: obra/superpowers writing-plans and code review, engineering p
 - Debt planning: `engineering:tech-debt` route.
 - Code review: `engineering:code-review` route, or `security-reviewer` for security depth.
 - Diagrams: Mermaid in markdown (renders on GitHub), ASCII for quick sketches.
-- Over-engineering check: `ponytail-review` (diff) or `ponytail-audit` (repo).
+- Over-engineering check (bundled): [ponytail-review](../vendor/ponytail-review/ponytail-review.md) for a diff, [ponytail-audit](../vendor/ponytail-audit/ponytail-audit.md) for a repo, [ponytail-debt](../vendor/ponytail-debt/ponytail-debt.md) to list deferred `ponytail:` shortcuts before a release.
 
 ## Checklist
 - [ ] ADRs for every hard-to-reverse choice, with options and consequences

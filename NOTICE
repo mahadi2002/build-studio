@@ -4,3 +4,8 @@ Copyright 2026 Mahadi Hasan Tanmay
 This product is licensed under the Apache License, Version 2.0 (see LICENSE).
 Versions up to and including 4.0.2 were released under the MIT License; copies
 obtained under those versions keep that license.
+
+Third-party material: skills/build-studio/references/vendor/ contains unchanged
+copies of MIT-licensed skills by DietrichGebert (ponytail), Emil Kowalski
+(emilkowalski/skills) and Leonxlnx (taste-skill). Their license texts are in
+skills/build-studio/references/vendor/LICENSES.md.

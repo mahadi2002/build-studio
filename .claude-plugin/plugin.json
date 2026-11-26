@@ -1,6 +1,6 @@
 {
   "name": "build-studio",
-  "version": "4.2.2",
+  "version": "4.3.0",
   "description": "Use for any software idea or build task: shaping an idea into a PRD, choosing a stack, designing, building, testing, securing, deploying or documenting a website, app, API, AI feature or tool, plus debugging, code review and deploy work.",
   "author": { "name": "mahadi2002", "url": "https://github.com/mahadi2002" },
   "homepage": "https://github.com/mahadi2002/build-studio",

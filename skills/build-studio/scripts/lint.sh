@@ -44,8 +44,9 @@ done
 
 # 3. Banned words and em-dash chains (all markdown in the skill)
 BANNED='\b(delve|delves|delving|robust|seamless|seamlessly|leverage|leverages|leveraging|comprehensive|utilize|utilizes|utilizing|holistic|streamline|streamlines|moreover|furthermore)\b|it.s important to note|in conclusion'
-while IFS= read -r hit; do fail "banned word: $hit"; done < <(grep -rniE "$BANNED" --include='*.md' "$ROOT" | sed "s#^$ROOT/##")
-while IFS= read -r hit; do fail "em-dash chain: $hit"; done < <(grep -rnE '—.*—' --include='*.md' "$ROOT" | sed "s#^$ROOT/##" | cut -c1-120)
+# references/vendor holds unchanged third-party guides (MIT): their wording is the authors', so style checks skip them. Links are still checked.
+while IFS= read -r hit; do fail "banned word: $hit"; done < <(grep -rniE "$BANNED" --include='*.md' --exclude-dir=vendor "$ROOT" | sed "s#^$ROOT/##")
+while IFS= read -r hit; do fail "em-dash chain: $hit"; done < <(grep -rnE '—.*—' --include='*.md' --exclude-dir=vendor "$ROOT" | sed "s#^$ROOT/##" | cut -c1-120)
 
 # 4. Relative links resolve
 while IFS=: read -r file _ match; do

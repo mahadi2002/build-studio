@@ -253,7 +253,7 @@ If yes, end the reply with a proposal to update build-studio (propose_skills, as
 - Stay under 300 lines: merge or replace rules instead of appending. Run `scripts/lint.sh` after every change.
 - No personal data, secrets, keys, or project credentials in this skill.
 - Every change goes through the review card; nothing is saved without my approval.
-- **In Claude Code** (no review card): after my yes, edit the skill's source folder (not the app's synced copy, which sync overwrites), run `scripts/lint.sh`, zip the folder as `build-studio.skill` (zip format; the file must start with `PK`), and I upload it at Plugins → Build studio → Upload new version.
+- **In Claude Code** (no review card): after my yes, edit the skill's source repo (not the app's synced copy, which sync overwrites), run `scripts/lint.sh`, bump `version` in `.claude-plugin/plugin.json`, add a CHANGELOG entry, commit, push, then push the `vX.Y.Z` tag. Installs that follow the repo as a marketplace update themselves; if claude.ai lags, run Manage marketplaces → Check for updates. Only an uploaded copy needs a new `build-studio.skill` (zip; the file starts with `PK`) uploaded under Plugins.
 
 ---
 Credits (paraphrased, no copied text): Anthropic skills (Apache-2.0), obra/superpowers and forrestchang/andrej-karpathy-skills (MIT), vercel-labs/agent-skills (MIT), addyosmani/web-quality-skills (MIT), ideas from trailofbits/skills (CC BY-SA 4.0), the engineering and design plugins, OWASP (Top 10:2025, ASVS 5.0, API Security Top 10, Top 10 for LLM Applications), WCAG 2.2, the Twelve-Factor App, Google SRE concepts, Conventional Commits, SemVer, NIST SSDF (SP 800-218).

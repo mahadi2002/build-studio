@@ -2,6 +2,10 @@
 
 All notable changes to this skill. Versions follow [SemVer](https://semver.org/); the version in `.claude-plugin/plugin.json` matches the newest entry here.
 
+## [4.2.2] - 2026-11-27
+### Fixed
+- Section 10: the Claude Code update path now releases through the repo (bump the version, push, tag; marketplace installs update themselves) instead of asking for a zip to upload by hand. Uploading a `.skill` stays as the path for uploaded copies only.
+
 ## [4.2.1] - 2026-11-27
 ### Fixed
 - README: claude.ai's automatic sync needs the Claude GitHub App to have access to the repository; added how to grant it and how to update by hand.

@@ -1,0 +1,14 @@
+# Private owner data: never commit
+private/
+owner-profile.md
+!owner-profile.example.md
+
+# Build output
+dist/
+*.skill
+
+# OS and editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

@@ -1,0 +1,56 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Lint the skill
+        env:
+          LINT_SKIP_ROUTES: "1"
+        run: bash skills/build-studio/scripts/lint.sh
+      - name: Check manifests and version
+        run: |
+          python3 -m json.tool .claude-plugin/plugin.json > /dev/null
+          python3 -m json.tool .claude-plugin/marketplace.json > /dev/null
+          version=$(python3 -c "import json;print(json.load(open('.claude-plugin/plugin.json'))['version'])")
+          grep -q "^## \[$version\]" CHANGELOG.md || { echo "CHANGELOG.md has no entry for $version"; exit 1; }
+          if [[ "$GITHUB_REF" == refs/tags/v* ]]; then
+            [ "${GITHUB_REF#refs/tags/v}" = "$version" ] || { echo "tag does not match plugin.json version $version"; exit 1; }
+          fi
+      - name: No private data
+        run: |
+          if git ls-files | grep -E '(^|/)(private/|owner-profile\.md$)'; then echo "private file is tracked"; exit 1; fi
+      - name: Build package
+        run: python3 scripts/build_skill.py
+
+  release:
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: check
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Build package
+        run: python3 scripts/build_skill.py
+      - name: Publish release with the .skill file
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ github.ref_name }}
+        run: |
+          notes=$(awk -v v="${TAG#v}" '$0 ~ "^## \\[" v "\\]" {f=1; next} /^## \[/ {f=0} f' CHANGELOG.md)
+          gh release create "$TAG" dist/build-studio.skill --title "$TAG" --notes "$notes"

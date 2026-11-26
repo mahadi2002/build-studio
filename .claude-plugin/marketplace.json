@@ -1,0 +1,12 @@
+{
+  "name": "build-studio",
+  "description": "Build Studio: a Claude skill that takes an idea to a deployed product for a one-person team.",
+  "owner": { "name": "mahadi2002", "url": "https://github.com/mahadi2002" },
+  "plugins": [
+    {
+      "name": "build-studio",
+      "source": "./",
+      "description": "Idea to deployed product for a one-person team: intake, PRD, stack choice, 51 role guides, gates, security, deploy and handoff."
+    }
+  ]
+}
